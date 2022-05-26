@@ -65,6 +65,6 @@ function plugin(fastify: FastifyInstance, options: NextAuthOptions, done: () => 
 }
 
 export default fastifyPlugin(plugin, {
-  fastify: '3.x',
+  fastify: '4.x',
   name: 'fastify-next-auth',
 })
