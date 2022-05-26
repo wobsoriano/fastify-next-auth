@@ -20,18 +20,26 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "plugin.d.ts"
   ],
   "scripts": {
-    "build-fast": "tsup src/index.ts --format cjs,esm",
-    "build": "pnpm run build-fast -- --dts-resolve",
-    "test": "vitest run",
+    "build": "tsup src/index.ts --format cjs,esm",
     "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^6.0.0",
+    "@fastify/formbody": "6.0.1",
+    "fastify-plugin": "^3.0.1",
+    "next-auth": "^4.3.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.24.2",
+    "@types/node": "^17.0.35",
     "bumpp": "^7.1.1",
     "eslint": "^8.16.0",
+    "esno": "^0.16.3",
+    "fastify": "^3.29.0",
     "pnpm": "^7.1.5",
     "tsup": "5.11.13",
     "typescript": "4.5.4"
