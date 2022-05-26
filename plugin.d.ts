@@ -1,6 +1,6 @@
 import type { FastifyPlugin } from 'fastify'
-import type { NextAuthHeader } from 'next-auth/core'
+import type { NextAuthOptions } from 'next-auth/core'
 
-declare const nextAuthPlugin: FastifyPlugin<NextAuthHeader>
+declare const nextAuthPlugin: FastifyPlugin<NextAuthOptions>
 
 export default nextAuthPlugin
