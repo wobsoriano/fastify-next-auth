@@ -18,7 +18,7 @@
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "types": "./dist/plugin.d.ts",
+  "types": "./plugin.d.ts",
   "files": [
     "dist",
     "plugin.d.ts"
