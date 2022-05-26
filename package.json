@@ -1,6 +1,6 @@
 {
   "name": "fastify-next-auth",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "packageManager": "pnpm@7.1.5",
   "description": "My awesome typescript library",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
