@@ -1,15 +1,19 @@
 import type { IncomingRequest, NextAuthOptions } from 'next-auth'
 import type { NextAuthAction } from 'next-auth/lib/types'
 import { NextAuthHandler as NextAuthHandlerImpl } from 'next-auth/core'
-import type { FastifyInstance } from 'fastify'
+import type { FastifyPluginCallback } from 'fastify'
 import cookie from '@fastify/cookie'
 import formBody from '@fastify/formbody'
 import fastifyPlugin from 'fastify-plugin'
 
-function plugin(fastify: FastifyInstance, options: NextAuthOptions, done: () => void) {
-  fastify.register(cookie)
-
-  fastify.register(formBody)
+const plugin: FastifyPluginCallback<NextAuthOptions> = (
+  fastify,
+  options,
+  done,
+) => {
+  fastify
+    .register(cookie)
+    .register(formBody)
 
   fastify.all('/api/auth/*', async (request, reply) => {
     const nextauth = request.url.split('/')
@@ -64,7 +68,13 @@ function plugin(fastify: FastifyInstance, options: NextAuthOptions, done: () => 
   done()
 }
 
-export default fastifyPlugin(plugin, {
+const fastifyNextAuth = fastifyPlugin(plugin, {
   fastify: '4.x',
   name: 'fastify-next-auth',
 })
+
+export {
+  fastifyNextAuth,
+}
+
+export default fastifyNextAuth
