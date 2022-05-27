@@ -9,6 +9,21 @@
     "type": "git",
     "url": "git+https://github.com/wobsoriano/fastify-next-auth.git"
   },
+  "keywords": [
+    "fastify",
+    "nodejs",
+    "oauth",
+    "jwt",
+    "oauth2",
+    "authentication",
+    "nextjs",
+    "csrf",
+    "oidc",
+    "nextauth",
+    "vue",
+    "react",
+    "svelte"
+  ],
   "publishConfig": {
     "access": "public"
   },
