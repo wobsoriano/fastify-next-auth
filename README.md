@@ -97,6 +97,8 @@ async function myFunction() {
 
   // Starts Email sign-in flow
   signIn('email', { email: 'hello@mail.com' })
+
+  signOut()
 }
 ```
 
