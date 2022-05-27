@@ -43,8 +43,7 @@
   "dependencies": {
     "@fastify/cookie": "^7.0.0",
     "@fastify/formbody": "7.0.1",
-    "fastify-plugin": "^3.0.1",
-    "ohmyfetch": "^0.4.18"
+    "fastify-plugin": "^3.0.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.24.2",
