@@ -88,6 +88,20 @@ async function myFunction() {
   const session = await getSession()
   const providers = await getProviders()
   const token = await getCsrfToken()
-  /* ... */
+
+  // Redirects to sign in page
+  signIn()
+
+  // Starts OAuth sign-in flow
+  signIn('google')
+
+  // Starts Email sign-in flow
+  signIn('email', { email: 'hello@mail.com' })
 }
 ```
+
+For more info on client side usage, proceed to the [NexAuth.js Client API](https://next-auth.js.org/getting-started/client) docs page.
+
+## License
+
+MIT
