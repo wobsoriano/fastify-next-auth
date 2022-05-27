@@ -21,7 +21,7 @@ import NextAuth from 'fastify-next-auth'
 const fastify = fastify()
 
 fastify.register(NextAuth, {
-  secret: process.env.SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     // OAuth authentication providers
     AppleProvider({
