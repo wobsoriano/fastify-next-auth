@@ -68,13 +68,9 @@ const plugin: FastifyPluginCallback<NextAuthOptions> = (
   done()
 }
 
-const fastifyNextAuth = fastifyPlugin(plugin, {
+export const fastifyNextAuth = fastifyPlugin(plugin, {
   fastify: '4.x',
   name: 'fastify-next-auth',
 })
-
-export {
-  fastifyNextAuth,
-}
 
 export default fastifyNextAuth
