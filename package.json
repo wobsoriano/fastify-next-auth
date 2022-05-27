@@ -2,7 +2,7 @@
   "name": "fastify-next-auth",
   "version": "0.0.8",
   "packageManager": "pnpm@7.1.5",
-  "description": "NextAuth.js with Fastify",
+  "description": "NextAuth.js plugin for Fastify.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
   "repository": {
