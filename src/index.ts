@@ -9,11 +9,11 @@ import fastifyPlugin from 'fastify-plugin'
 const plugin: FastifyPluginCallback<NextAuthOptions> = (
   fastify,
   options,
-  done,
+  next,
 ) => {
-  fastify
-    .register(cookie)
-    .register(formBody)
+  fastify.register(cookie)
+
+  fastify.register(formBody)
 
   fastify.all('/api/auth/*', async (request, reply) => {
     const nextauth = request.url.split('/')
@@ -65,7 +65,7 @@ const plugin: FastifyPluginCallback<NextAuthOptions> = (
     return body
   })
 
-  done()
+  next()
 }
 
 const fastifyNextAuth = fastifyPlugin(plugin, {
