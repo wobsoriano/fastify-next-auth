@@ -14,22 +14,21 @@
   },
   "exports": {
     ".": {
-      "types": "./plugin.d.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
     "./client": {
-      "types": "./client.d.ts",
+      "types": "./dist/client/index.d.ts",
       "import": "./dist/client/index.mjs",
       "require": "./dist/client/index.js"
     }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "types": "./plugin.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "*.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "tsup",
@@ -44,7 +43,8 @@
   "dependencies": {
     "@fastify/cookie": "^7.0.0",
     "@fastify/formbody": "7.0.1",
-    "fastify-plugin": "^3.0.1"
+    "fastify-plugin": "^3.0.1",
+    "ohmyfetch": "^0.4.18"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.24.2",

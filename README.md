@@ -29,3 +29,6 @@ fastify.register(NextAuth, {
   ]
 } as NextAuthOptions)
 ```
+
+## Client API
+
