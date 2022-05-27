@@ -19,11 +19,13 @@ import NextAuth from 'fastify-next-auth'
 const fastify = fastify()
 
 fastify.register(NextAuth, {
+  // Configure one or more authentication providers
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    })
+    }),
+    // ...add more providers here
   ]
 } as NextAuthOptions)
 ```
