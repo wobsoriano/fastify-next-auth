@@ -1,6 +1,6 @@
 import type { IncomingRequest, NextAuthOptions } from 'next-auth'
 import type { NextAuthAction } from 'next-auth/lib/types'
-import { NextAuthHandler as NextAuthHandlerImpl } from 'next-auth/core'
+import { NextAuthHandler } from 'next-auth/core'
 import type { FastifyPluginCallback } from 'fastify'
 import cookie from '@fastify/cookie'
 import formBody from '@fastify/formbody'
@@ -30,7 +30,7 @@ const plugin: FastifyPluginCallback<NextAuthOptions> = (
       error: nextauth[4]?.split('?')[0],
     }
 
-    const response = await NextAuthHandlerImpl({
+    const response = await NextAuthHandler({
       req,
       options,
     })
@@ -68,9 +68,14 @@ const plugin: FastifyPluginCallback<NextAuthOptions> = (
   done()
 }
 
-export const fastifyNextAuth = fastifyPlugin(plugin, {
+const fastifyNextAuth = fastifyPlugin(plugin, {
   fastify: '4.x',
   name: 'fastify-next-auth',
 })
+
+export {
+  fastifyNextAuth,
+  NextAuthOptions,
+}
 
 export default fastifyNextAuth

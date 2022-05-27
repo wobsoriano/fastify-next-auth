@@ -6,4 +6,5 @@ declare const fastifyNextAuth: FastifyPluginCallback<NextAuthOptions>
 export {
   fastifyNextAuth as default,
   fastifyNextAuth,
+  NextAuthOptions,
 }
