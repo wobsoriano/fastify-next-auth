@@ -3,7 +3,7 @@ import type { NextAuthOptions, Session } from 'next-auth'
 import { NextAuthHandler } from 'next-auth/core'
 import type { NextAuthAction } from 'next-auth/lib/types'
 
-export async function getActionResult<T = any>(action: NextAuthAction, req: FastifyRequest<any, any, any, any, any, any, any, any>, options: NextAuthOptions) {
+export async function getActionResult<T = any>(action: NextAuthAction, req: FastifyRequest, options: NextAuthOptions) {
   const result = await NextAuthHandler<T>({
     req: {
       host: process.env.NEXTAUTH_URL,
