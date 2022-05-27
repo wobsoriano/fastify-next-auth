@@ -47,5 +47,47 @@ Example Session Object
 }
 ```
 
-> 💡TIP<br />The session data returned to the client does not contain sensitive information such as the Session Token or OAuth tokens. It contains a minimal payload that includes enough data needed to display information on a page about the user who is signed in for presentation purposes (e.g name, email, image). <br /><br />You can use the [session callback](https://next-auth.js.org/configuration/callbacks#session-callback) to customize the session object returned to the client if you need to return additional data in the session object.
+<b>Server Side Example</b>
 
+```ts
+import {
+  getCsrfToken,
+  getProviders,
+  getSession
+} from 'fastify-next-auth/client'
+
+fastify
+  .route({
+    // other route properties
+    handler: async (request, reply) => {
+      const session = await getSession(request)
+      const token = await getCsrfToken(request)
+      // Unlike getSession() and getCsrfToken(), when calling getProviders() server side, you don't need to pass anything, just as calling it client side.
+      const providers = await getProviders()
+      return {
+        session,
+        providers,
+        token
+      }
+    }
+  })
+```
+
+<b>Client Side Example</b>
+
+```ts
+import {
+  getCsrfToken,
+  getProviders,
+  getSession,
+  signIn,
+  signOut
+} from 'fastify-next-auth/client'
+
+async function myFunction() {
+  const session = await getSession()
+  const providers = await getProviders()
+  const token = await getCsrfToken()
+  /* ... */
+}
+```
