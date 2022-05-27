@@ -29,7 +29,7 @@
   "types": "./plugin.d.ts",
   "files": [
     "dist",
-    "plugin.d.ts"
+    "*.d.ts"
   ],
   "scripts": {
     "build": "tsup",
