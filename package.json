@@ -51,7 +51,8 @@
     "prepublishOnly": "pnpm run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "release": "bumpp --commit --push --tag && pnpm publish"
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "dev:docs": "pnpm --filter playground start"
   },
   "peerDependencies": {
     "next-auth": "^4.3.0"
