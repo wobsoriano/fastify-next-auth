@@ -52,7 +52,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "bumpp --commit --push --tag && pnpm publish",
-    "dev:docs": "pnpm --filter playground start"
+    "dev:docs": "pnpm --filter playground dev"
   },
   "peerDependencies": {
     "next-auth": "^4.3.0"

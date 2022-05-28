@@ -5,6 +5,7 @@
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,

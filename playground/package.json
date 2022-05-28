@@ -2,10 +2,13 @@
   "name": "playground",
   "private": true,
   "scripts": {
-    "start": "esno index.ts"
+    "dev": "esno server.ts"
   },
   "dependencies": {
-    "@fastify/env": "^4.0.0",
+    "@fastify/static": "^6.4.0",
     "fastify-next-auth": "workspace:*"
+  },
+  "devDependencies": {
+    "@fastify/env": "^4.0.0"
   }
 }

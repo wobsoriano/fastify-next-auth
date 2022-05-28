@@ -1,9 +1,10 @@
+import path from 'path'
 import Fastify from 'fastify'
 import fastifyEnv from '@fastify/env'
 import GithubProvider from 'next-auth/providers/github'
 import NextAuthPlugin from 'fastify-next-auth'
-import { getSession } from 'fastify-next-auth/client'
 import type { NextAuthOptions } from 'fastify-next-auth'
+import fastifyStatic from '@fastify/static'
 
 const schema = {
   type: 'object',
@@ -27,16 +28,15 @@ const schema = {
 
 const fastify = Fastify({ logger: true })
 
-const initialize = async () => {
+async function initialize() {
+  fastify.register(fastifyStatic, {
+    root: path.join(__dirname, 'public'),
+  })
   fastify.register(fastifyEnv, {
     schema,
     dotenv: true,
   })
   await fastify.after()
-  console.log(process.env.NEXTAUTH_URL)
-  console.log(process.env.GITHUB_CLIENT_ID)
-  console.log(process.env.GITHUB_CLIENT_SECRET)
-
   fastify.register(NextAuthPlugin, {
     secret: process.env.NEXTAUTH_SECRET,
     providers: [
@@ -48,52 +48,24 @@ const initialize = async () => {
   } as NextAuthOptions)
 }
 
-fastify
-  .route({
-    method: 'GET',
-    url: '/',
-    handler: async (request, reply) => {
-      const user = await getSession({ req: request })
-      return user
-    },
-  })
-// .route({
-//   method: 'GET',
-//   url: '/user',
-//   schema: {
-//     // request needs to have a querystring with a `name` parameter
-//     querystring: {
-//       name: { type: 'string' }
-//     },
-//     // the response needs to be an object with an `hello` property of type 'string'
-//     response: {
-//       200: {
-//         type: 'object',
-//         properties: {
-//           hello: { type: 'string' }
-//         }
-//       }
-//     }
-//   },
-//   handler: async (request, reply) => {
-//     const session = await getServerSession(request, opts)
-//     return session
-//   }
-// })
+fastify.get('/', (req, reply) => {
+  return reply.sendFile('index.html')
+})
 
 initialize()
 
-const start = async () => {
+async function startServer() {
   try {
     await fastify.ready()
     await fastify.listen({
       port: 3000,
     })
-    console.log('listening')
+    console.log('listening on port 3000')
   }
   catch (err) {
     fastify.log.error(err)
     process.exit(1)
   }
 }
-start()
+
+startServer()
