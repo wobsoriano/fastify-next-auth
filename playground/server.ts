@@ -5,6 +5,7 @@ import GithubProvider from 'next-auth/providers/github'
 import NextAuthPlugin from 'fastify-next-auth'
 import type { NextAuthOptions } from 'fastify-next-auth'
 import fastifyStatic from '@fastify/static'
+import { getSession } from 'fastify-next-auth/client'
 
 const schema = {
   type: 'object',
@@ -50,6 +51,11 @@ async function initialize() {
 
 fastify.get('/', (req, reply) => {
   return reply.sendFile('index.html')
+})
+
+fastify.get('/api/user', async (req) => {
+  const session = await getSession({ req })
+  return session
 })
 
 initialize()
