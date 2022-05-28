@@ -18,9 +18,9 @@ import EmailProvider from 'next-auth/providers/email'
 import type { NextAuthOptions } from 'fastify-next-auth'
 import NextAuth from 'fastify-next-auth'
 
-const fastify = fastify()
+const app = fastify()
 
-fastify.register(NextAuth, {
+app.register(NextAuth, {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     // OAuth authentication providers
