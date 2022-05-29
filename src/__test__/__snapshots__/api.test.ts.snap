@@ -1,0 +1,15 @@
+// Vitest Snapshot v1
+
+exports[`REST API > GET /api/auth/providers 1`] = `
+{
+  "github": {
+    "callbackUrl": "http://localhost:3000/api/auth/callback/github",
+    "id": "github",
+    "name": "GitHub",
+    "signinUrl": "http://localhost:3000/api/auth/signin/github",
+    "type": "oauth",
+  },
+}
+`;
+
+exports[`REST API > GET /api/auth/session 1`] = `{}`;
