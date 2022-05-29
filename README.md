@@ -67,21 +67,18 @@ import {
   getSession
 } from 'fastify-next-auth/client'
 
-fastify
-  .route({
-    // other route properties
-    handler: async (req, reply) => {
-      const session = await getSession({ req })
-      const token = await getCsrfToken({ req })
-      // Unlike getSession() and getCsrfToken(), when calling getProviders() server side, you don't need to pass anything, just as calling it client side.
-      const providers = await getProviders()
-      return {
-        session,
-        providers,
-        token
-      }
-    }
-  })
+fastify.get('/api/user', async (req, reply) => {
+  const session = await getSession({ req })
+  const token = await getCsrfToken({ req })
+  // Unlike getSession() and getCsrfToken(), when calling getProviders() server side,
+  // you don't need to pass anything, just as calling it client side.
+  const providers = await getProviders()
+  return {
+    session,
+    providers,
+    token
+  }
+})
 ```
 
 <b>Client Side Example</b>
