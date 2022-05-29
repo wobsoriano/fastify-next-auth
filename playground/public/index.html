@@ -8,25 +8,39 @@
 </head>
 <body>
   <div id="app">
-    User: {{ user }}
+    <div v-if="loading">Loading...</div>
+    <div v-else>
+      <div v-if="user">
+        <pre>
+          {{ JSON.stringify(user, null, 2) }}
+        </pre>
+        <button @click="signOut">Sign out</button>
+      </div>
+      <button v-else @click="signIn('github')">Sign in with GitHub</button>
+    </div>
   </div>
 
   <script src="https://unpkg.com/vue@3"></script>
   <script type="module">
     import * as Client from "https://cdn.skypack.dev/fastify-next-auth/client"
-    const { getSession } = Client
+    const { getSession, signIn, signOut } = Client
     const { createApp, ref, onMounted } = Vue
 
     createApp({
       setup() {
+        const loading = ref(true)
         const user = ref(null)
 
         onMounted(async() => {
           user.value = await getSession()
+          loading.value = false
         })
 
         return {
-          user
+          user,
+          signIn,
+          signOut,
+          loading
         }
       }
     }).mount('#app')
