@@ -70,9 +70,9 @@ import {
 fastify
   .route({
     // other route properties
-    handler: async (request, reply) => {
-      const session = await getSession(request)
-      const token = await getCsrfToken(request)
+    handler: async (req, reply) => {
+      const session = await getSession({ req })
+      const token = await getCsrfToken({ req })
       // Unlike getSession() and getCsrfToken(), when calling getProviders() server side, you don't need to pass anything, just as calling it client side.
       const providers = await getProviders()
       return {
