@@ -1,6 +1,6 @@
 # fastify-next-auth
 
-Authentication plugin for Fastify, powered by [NexAuth.js](https://next-auth.js.org/).
+Authentication plugin for Fastify, powered by [NextAuth.js](https://next-auth.js.org/).
 
 ## Installation
 
