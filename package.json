@@ -49,7 +49,6 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
-    "snap": "esno src/__test__/api.test.ts",
     "prepublishOnly": "nr build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
