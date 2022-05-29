@@ -110,7 +110,7 @@ async function myFunction() {
 }
 ```
 
-For more info on client side usage, proceed to the [NexAuth.js Client API](https://next-auth.js.org/getting-started/client) docs page.
+For more info on client side usage, proceed to the [NextAuth.js Client API](https://next-auth.js.org/getting-started/client) docs page.
 
 ## License
 
