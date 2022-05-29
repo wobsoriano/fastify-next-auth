@@ -1,3 +1,4 @@
+// Source: https://github.com/nextauthjs/next-auth/blob/main/packages/next-auth/src/react/index.tsx
 import type { NextAuthClientConfig as NextAuthClientConfigImpl } from 'next-auth/client/_utils'
 import { BroadcastChannel, apiBaseUrl, fetchData } from 'next-auth/client/_utils'
 import type { Session } from 'next-auth'
