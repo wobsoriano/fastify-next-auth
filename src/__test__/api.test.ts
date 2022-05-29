@@ -22,6 +22,15 @@ describe('REST API', () => {
     expect(response.body).toContain('<button type="submit" class="button">Sign in with GitHub</button>')
   })
 
+  test('POST /api/auth/signin/:provider', async () => {
+    const response = await fastify.inject({
+      method: 'POST',
+      url: '/api/auth/signin/github',
+    })
+
+    expect(response.statusCode).toBe(302)
+  })
+
   test('GET /api/auth/signout', async () => {
     const response = await fastify.inject({
       method: 'GET',
@@ -31,6 +40,15 @@ describe('REST API', () => {
     expect(response.statusCode).toBe(200)
     expect(response.body).toContain('Are you sure you want to sign out?')
     expect(response.body).toContain('<button type="submit">Sign out</button>')
+  })
+
+  test('POST /api/auth/signout', async () => {
+    const response = await fastify.inject({
+      method: 'POST',
+      url: '/api/auth/signout',
+    })
+
+    expect(response.statusCode).toBe(302)
   })
 
   test('GET /api/auth/providers', async () => {
