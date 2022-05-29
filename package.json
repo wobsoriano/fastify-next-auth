@@ -1,7 +1,7 @@
 {
   "name": "fastify-next-auth",
   "version": "0.1.0",
-  "packageManager": "pnpm@7.1.5",
+  "packageManager": "pnpm@7.1.7",
   "description": "NextAuth.js plugin for Fastify.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
@@ -71,7 +71,8 @@
     "esno": "^0.16.3",
     "fastify": "4.0.0-rc.3",
     "next-auth": "^4.3.4",
-    "pnpm": "^7.1.5",
+    "pnpm": "^7.1.7",
+    "tap": "^16.2.0",
     "tsup": "5.11.13",
     "typescript": "4.5.4"
   },
