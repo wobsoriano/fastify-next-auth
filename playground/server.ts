@@ -6,6 +6,8 @@ import NextAuthPlugin from 'fastify-next-auth'
 import type { NextAuthOptions } from 'fastify-next-auth'
 import fastifyStatic from '@fastify/static'
 import { getSession } from 'fastify-next-auth/client'
+import cookie from '@fastify/cookie'
+import formBody from '@fastify/formbody'
 
 const schema = {
   type: 'object',
@@ -30,13 +32,16 @@ const schema = {
 const fastify = Fastify({ logger: true })
 
 async function initialize() {
-  fastify.register(fastifyStatic, {
-    root: path.join(__dirname, 'public'),
-  })
-  fastify.register(fastifyEnv, {
-    schema,
-    dotenv: true,
-  })
+  fastify
+    .register(fastifyStatic, {
+      root: path.join(__dirname, 'public'),
+    })
+    .register(fastifyEnv, {
+      schema,
+      dotenv: true,
+    })
+    .register(cookie)
+    .register(formBody)
   await fastify.after()
   fastify.register(NextAuthPlugin, {
     secret: process.env.NEXTAUTH_SECRET,

@@ -2,8 +2,6 @@ import type { IncomingRequest, NextAuthOptions } from 'next-auth'
 import type { NextAuthAction } from 'next-auth/lib/types'
 import { NextAuthHandler } from 'next-auth/core'
 import type { FastifyPluginCallback } from 'fastify'
-import cookie from '@fastify/cookie'
-import formBody from '@fastify/formbody'
 import fastifyPlugin from 'fastify-plugin'
 import { fetch } from 'node-fetch-native'
 
@@ -14,10 +12,6 @@ const plugin: FastifyPluginCallback<NextAuthOptions> = (
   options,
   next,
 ) => {
-  fastify.register(cookie)
-
-  fastify.register(formBody)
-
   fastify.all('/api/auth/*', async (request, reply) => {
     const nextauth = request.url.split('/')
 
@@ -27,7 +21,7 @@ const plugin: FastifyPluginCallback<NextAuthOptions> = (
       query: request.query as Record<string, any>,
       headers: request.headers,
       method: request.method,
-      cookies: request.cookies,
+      cookies: (request as any).cookies,
       action: nextauth[3] as NextAuthAction,
       providerId: nextauth[4]?.split('?')[0],
       error: nextauth[4]?.split('?')[0],
@@ -47,7 +41,7 @@ const plugin: FastifyPluginCallback<NextAuthOptions> = (
     })
 
     cookies?.forEach((cookie) => {
-      reply.setCookie(cookie.name, cookie.value, cookie.options)
+      (reply as any).setCookie(cookie.name, cookie.value, cookie.options)
     })
 
     if (redirect) {
@@ -74,6 +68,7 @@ const plugin: FastifyPluginCallback<NextAuthOptions> = (
 const fastifyNextAuth = fastifyPlugin(plugin, {
   fastify: '4.x',
   name: 'fastify-next-auth',
+  dependencies: ['@fastify/cookie', '@fastify/formbody'],
 })
 
 export {

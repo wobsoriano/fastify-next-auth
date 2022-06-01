@@ -2,16 +2,23 @@
 
 Authentication plugin for Fastify, powered by [NextAuth.js](https://next-auth.js.org/).
 
+**Requirements:**
+
++ [fastify-cookie](https://github.com/fastify/fastify-cookie): used to set cookie for tracking sessions.
++ [fastify-formbody](https://github.com/fastify/fastify-formbody): used to parse content-type `application/x-www-form-urlencoded`.
+
 ## Installation
 
 ```bash
-pnpm add next-auth fastify-next-auth # or npm or yarn
+npm install next-auth @fastify/cookie @fastify/formbody fastify-next-auth
 ```
 
 ## Usage
 
 ```ts
 import fastify from 'fastify'
+import cookie from '@fastify/cookie'
+import formBody from '@fastify/formbody'
 import AppleProvider from 'next-auth/providers/apple'
 import GoogleProvider from 'next-auth/providers/google'
 import EmailProvider from 'next-auth/providers/email'
@@ -20,25 +27,28 @@ import NextAuth from 'fastify-next-auth'
 
 const app = fastify()
 
-app.register(NextAuth, {
-  secret: process.env.NEXTAUTH_SECRET,
-  providers: [
+app
+  .register(cookie)
+  .register(formBody)
+  .register(NextAuth, {
+    secret: process.env.NEXTAUTH_SECRET,
+    providers: [
     // OAuth authentication providers
-    AppleProvider({
-      clientId: process.env.APPLE_ID,
-      clientSecret: process.env.APPLE_SECRET,
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
-    }),
-    // Sign in with passwordless email link
-    EmailProvider({
-      server: process.env.MAIL_SERVER,
-      from: '<no-reply@example.com>',
-    }),
-  ],
-} as NextAuthOptions)
+      AppleProvider({
+        clientId: process.env.APPLE_ID,
+        clientSecret: process.env.APPLE_SECRET,
+      }),
+      GoogleProvider({
+        clientId: process.env.GOOGLE_ID,
+        clientSecret: process.env.GOOGLE_SECRET,
+      }),
+      // Sign in with passwordless email link
+      EmailProvider({
+        server: process.env.MAIL_SERVER,
+        from: '<no-reply@example.com>',
+      }),
+    ],
+  } as NextAuthOptions)
 ```
 
 ## Client API
