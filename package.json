@@ -1,6 +1,6 @@
 {
   "name": "fastify-next-auth",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "packageManager": "pnpm@7.1.7",
   "description": "NextAuth.js plugin for Fastify.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
@@ -52,7 +52,7 @@
     "prepublishOnly": "nr build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "release": "bumpp --commit --push --tag && nr publish",
+    "release": "bumpp --commit --push --tag && npm publish",
     "dev:playground": "nr --filter playground dev"
   },
   "peerDependencies": {
