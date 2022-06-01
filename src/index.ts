@@ -5,9 +5,9 @@ import type { FastifyPluginCallback } from 'fastify'
 import cookie from '@fastify/cookie'
 import formBody from '@fastify/formbody'
 import fastifyPlugin from 'fastify-plugin'
-import fetch from 'node-fetch'
+import { fetch } from 'node-fetch-native'
 
-(global as any).fetch = fetch
+globalThis.fetch = fetch
 
 const plugin: FastifyPluginCallback<NextAuthOptions> = (
   fastify,
