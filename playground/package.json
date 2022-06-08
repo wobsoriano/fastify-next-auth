@@ -2,7 +2,7 @@
   "name": "playground",
   "private": true,
   "scripts": {
-    "dev": "esno server.ts"
+    "dev": "tsx watch ./server.ts"
   },
   "dependencies": {
     "@fastify/static": "^6.4.0",
