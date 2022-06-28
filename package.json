@@ -61,7 +61,7 @@
     "node-fetch-native": "^0.1.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.24.2",
+    "@antfu/eslint-config": "^0.25.1",
     "@antfu/ni": "^0.16.2",
     "@fastify/cookie": "^7.0.0",
     "@fastify/env": "^4.0.0",
