@@ -1,5 +1,4 @@
-import type { IncomingRequest, NextAuthOptions } from 'next-auth'
-import type { NextAuthAction } from 'next-auth/lib/types'
+import type { NextAuthAction, NextAuthOptions } from 'next-auth'
 import { NextAuthHandler } from 'next-auth/core'
 import type { FastifyPluginCallback } from 'fastify'
 import fastifyPlugin from 'fastify-plugin'
@@ -15,7 +14,7 @@ const plugin: FastifyPluginCallback<NextAuthOptions> = (
   fastify.all('/api/auth/*', async (request, reply) => {
     const nextauth = request.url.split('/')
 
-    const req: IncomingRequest = {
+    const req = {
       host: process.env.NEXTAUTH_URL,
       body: request.body as Record<string, any> || {},
       query: request.query as Record<string, any>,

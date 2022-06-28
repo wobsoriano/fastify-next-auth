@@ -57,6 +57,7 @@ const _logger: LoggerInstance = {
     )
   },
   debug(code, metadata) {
+    // eslint-disable-next-line no-console
     console.log(`[next-auth][debug][${code}]`, metadata)
   },
 }
@@ -100,7 +101,7 @@ export function proxyLogger(
         if (level === 'error')
           metadata = formatError(metadata) as Error
 
-          ;(metadata as any).client = true
+        ;(metadata as any).client = true
         const url = `${basePath}/_log`
         const body = new URLSearchParams({ level, code, ...(metadata as any) })
         if (navigator.sendBeacon)

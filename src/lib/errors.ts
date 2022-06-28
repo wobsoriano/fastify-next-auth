@@ -8,7 +8,6 @@ import type { EventCallbacks, LoggerInstance } from 'next-auth'
 export class UnknownError extends Error {
   code: string
   constructor(error: Error | string) {
-    // @ts-expect-error: Internal
     super((error as Error)?.message ?? error)
     this.name = 'UnknownError'
     this.code = (error as any).code
