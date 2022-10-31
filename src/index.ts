@@ -2,9 +2,7 @@ import type { NextAuthAction, NextAuthOptions } from 'next-auth'
 import { NextAuthHandler } from 'next-auth/core'
 import type { FastifyPluginCallback } from 'fastify'
 import fastifyPlugin from 'fastify-plugin'
-import { fetch } from 'node-fetch-native'
-
-globalThis.fetch = fetch
+import 'node-fetch-native/polyfill'
 
 const plugin: FastifyPluginCallback<NextAuthOptions> = (
   fastify,
