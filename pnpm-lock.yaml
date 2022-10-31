@@ -14,7 +14,7 @@ importers:
       bumpp: ^8.2.1
       eslint: ^8.16.0
       fastify: 4.0.0
-      fastify-plugin: ^3.0.1
+      fastify-plugin: ^4.3.0
       next-auth: ^4.15.0
       node-fetch-native: ^0.1.4
       pnpm: ^7.3.0
@@ -23,7 +23,7 @@ importers:
       typescript: 4.5.4
       vitest: ^0.13.0
     dependencies:
-      fastify-plugin: 3.0.1
+      fastify-plugin: 4.3.0
       node-fetch-native: 0.1.4
     devDependencies:
       '@antfu/eslint-config': 0.25.2_pn4c2euezwjqh4cpvwz4zteq6u
@@ -1944,6 +1944,10 @@ packages:
 
   /fastify-plugin/3.0.1:
     resolution: {integrity: sha512-qKcDXmuZadJqdTm6vlCqioEbyewF60b/0LOFCcYN1B6BIZGlYJumWWOYs70SFYLDAH4YqdE1cxH/RKMG7rFxgA==}
+
+  /fastify-plugin/4.3.0:
+    resolution: {integrity: sha512-M3+i368lV0OYTJ5TfClIoPKEKSOF7112iiPdwgfSR0gN98BjA1Nk+c6oBHtfcVt9KiMxl+EQKHC1QNWo3ZOpYQ==}
+    dev: false
 
   /fastify/4.0.0:
     resolution: {integrity: sha512-Go6j7omkTMzfnFnYT8w4Usi9qfs/7rX8zPrE6K96bp9pe7tnTUC7EcCgaCPelmbn5uh6o45iVL7a274WSbuY/Q==}

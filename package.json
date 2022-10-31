@@ -59,7 +59,7 @@
     "next-auth": "^4.10.0"
   },
   "dependencies": {
-    "fastify-plugin": "^3.0.1",
+    "fastify-plugin": "^4.3.0",
     "node-fetch-native": "^0.1.4"
   },
   "devDependencies": {
