@@ -16,7 +16,7 @@ importers:
       fastify: 4.0.0
       fastify-plugin: ^4.3.0
       next-auth: ^4.15.0
-      node-fetch-native: ^0.1.4
+      node-fetch-native: ^0.1.8
       pnpm: ^7.3.0
       tsup: 5.11.13
       tsx: ^3.4.2
@@ -24,7 +24,7 @@ importers:
       vitest: ^0.13.0
     dependencies:
       fastify-plugin: 4.3.0
-      node-fetch-native: 0.1.4
+      node-fetch-native: 0.1.8
     devDependencies:
       '@antfu/eslint-config': 0.25.2_pn4c2euezwjqh4cpvwz4zteq6u
       '@antfu/ni': 0.16.2
@@ -2694,8 +2694,8 @@ packages:
       uuid: 8.3.2
     dev: true
 
-  /node-fetch-native/0.1.4:
-    resolution: {integrity: sha512-10EKpOCQPXwZVFh3U1ptOMWBgKTbsN7Vvo6WVKt5pw4hp8zbv6ZVBZPlXw+5M6Tyi1oc1iD4/sNPd71KYA16tQ==}
+  /node-fetch-native/0.1.8:
+    resolution: {integrity: sha512-ZNaury9r0NxaT2oL65GvdGDy+5PlSaHTovT6JV5tOW07k1TQmgC0olZETa4C9KZg0+6zBr99ctTYa3Utqj9P/Q==}
     dev: false
 
   /normalize-package-data/2.5.0:
