@@ -10,7 +10,7 @@ Authentication plugin for Fastify, powered by [NextAuth.js](https://next-auth.js
 ## Installation
 
 ```bash
-npm install fastify-next-auth
+npm install next-auth fastify-next-auth
 ```
 
 ## Usage
