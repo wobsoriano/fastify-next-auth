@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from 'http'
-import type { AuthOptions } from '@auth/core'
+import type { AuthOptions, Session } from '@auth/core'
 import type { FastifyPluginCallback, FastifyRequest } from 'fastify'
 import fastifyPlugin from 'fastify-plugin'
 import Middie from '@fastify/middie/engine'
@@ -53,6 +53,6 @@ export default fastifyNextAuth
 
 declare module 'fastify' {
   interface FastifyInstance {
-    getSession(req: FastifyRequest): this
+    getSession(req: FastifyRequest): Session
   }
 }
