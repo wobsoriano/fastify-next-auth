@@ -12,9 +12,9 @@ npm install @auth/core fastify-next-auth
 
 ```ts
 import fastify from 'fastify'
-import AppleProvider from 'next-auth/providers/apple'
-import GoogleProvider from 'next-auth/providers/google'
-import EmailProvider from 'next-auth/providers/email'
+import AppleProvider from '@auth/core/providers/apple'
+import GoogleProvider from '@auth/core/providers/google'
+import EmailProvider from '@auth/core/providers/email'
 import type { AuthOptions } from '@auth/core'
 import AuthPlugin from 'fastify-next-auth'
 
