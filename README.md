@@ -61,6 +61,15 @@ async function myFunction() {
 }
 ```
 
+<b>Decorators</b>
+
+```ts
+fastify.get('/api/user', async (req) => {
+  const { user } = await fastify.getSession(req)
+  return user
+})
+```
+
 For more info, proceed to the [Auth.js](https://authjs.dev/) docs.
 
 ## License
