@@ -1,13 +1,11 @@
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
-import type { IncomingMessage } from 'http'
 import Fastify from 'fastify'
 import fastifyEnv from '@fastify/env'
 import GithubProvider from '@auth/core/providers/github'
 import NextAuthPlugin from 'fastify-next-auth'
 import type { AuthOptions } from 'fastify-next-auth'
 import fastifyStatic from '@fastify/static'
-import { getSession } from 'authey'
 
 const schema = {
   type: 'object',
@@ -60,14 +58,7 @@ fastify.get('/', (req, reply) => {
 })
 
 fastify.get('/api/user', async (req) => {
-  const session = await getSession(req as unknown as IncomingMessage, {
-    providers: [
-      GithubProvider({
-        clientId: process.env.GITHUB_CLIENT_ID as string,
-        clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
-      }),
-    ],
-  })
+  const session = await fastify.getSession(req)
   return session
 })
 

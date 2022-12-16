@@ -1,9 +1,9 @@
 import type { IncomingMessage, ServerResponse } from 'http'
 import type { AuthOptions } from '@auth/core'
-import type { FastifyPluginCallback } from 'fastify'
+import type { FastifyPluginCallback, FastifyRequest } from 'fastify'
 import fastifyPlugin from 'fastify-plugin'
 import Middie from '@fastify/middie/engine'
-import { createAuthMiddleware } from 'authey'
+import { createAuthMiddleware, getSession } from 'authey'
 
 const plugin: FastifyPluginCallback<AuthOptions> = async (
   fastify,
@@ -32,6 +32,9 @@ const plugin: FastifyPluginCallback<AuthOptions> = async (
   }
 
   fastify.addHook('onRequest', runMiddie)
+  fastify.decorate('getSession', (req: FastifyRequest) => {
+    return getSession(req.raw, options)
+  })
 
   next()
 }
@@ -47,3 +50,9 @@ export {
 }
 
 export default fastifyNextAuth
+
+declare module 'fastify' {
+  interface FastifyInstance {
+    getSession(req: FastifyRequest): this
+  }
+}

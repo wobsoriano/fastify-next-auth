@@ -32,10 +32,13 @@
         const user = ref(null)
 
         onMounted(async() => {
-          // user.value = await getSession()
           const res = await fetch('/api/user')
           const data = await res.json()
-          console.log(data)
+          
+          if (data && Object.keys(data).length) {
+            user.value = data
+          }
+
           loading.value = false
         })
 
