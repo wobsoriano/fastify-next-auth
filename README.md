@@ -42,23 +42,6 @@ app
   } as AuthOptions)
 ```
 
-## Client API
-
-The client library makes it easy to interact with sessions from your frontend.
-
-Example Session Object
-
-```ts
-{
-  user: {
-    name: string
-    email: string
-    image: string
-  },
-  expires: Date // This is the expiry of the session, not any of the tokens within the session
-}
-```
-
 <b>Client Side Functions</b>
 
 ```ts
