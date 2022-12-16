@@ -1,7 +1,7 @@
 {
   "name": "fastify-next-auth",
   "version": "0.1.7",
-  "description": "NextAuth.js plugin for Fastify.",
+  "description": "Auth.js plugin for Fastify.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -61,17 +61,12 @@
   "dependencies": {
     "@auth/core": "^0.1.4",
     "@fastify/middie": "^8.1.0",
-    "@hattip/adapter-node": "^0.0.22",
-    "@hattip/polyfills": "^0.0.22",
     "authey": "^0.1.5",
     "fastify-plugin": "^4.4.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
-    "@fastify/cookie": "^8.3.0",
     "@fastify/env": "^4.2.0",
-    "@fastify/formbody": "7.4.0",
-    "@types/connect": "^3.4.35",
     "@types/node": "^17.0.45",
     "@types/tap": "^15.0.7",
     "bumpp": "^8.2.1",
