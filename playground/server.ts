@@ -1,23 +1,23 @@
-import path from 'path'
+import path, { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import type { IncomingMessage } from 'http'
 import Fastify from 'fastify'
 import fastifyEnv from '@fastify/env'
-import GithubProvider from 'next-auth/providers/github'
+import GithubProvider from '@auth/core/providers/github'
 import NextAuthPlugin from 'fastify-next-auth'
-import type { NextAuthOptions } from 'fastify-next-auth'
+import type { AuthOptions } from 'fastify-next-auth'
 import fastifyStatic from '@fastify/static'
-import { getSession } from 'fastify-next-auth/client'
-import cookie from '@fastify/cookie'
-import formBody from '@fastify/formbody'
+import { getSession } from 'authey'
 
 const schema = {
   type: 'object',
-  required: ['NEXTAUTH_URL', 'NEXTAUTH_SECRET', 'GITHUB_CLIENT_ID', 'GITHUB_CLIENT_SECRET'],
+  required: ['NEXTAUTH_URL', 'AUTH_SECRET', 'GITHUB_CLIENT_ID', 'GITHUB_CLIENT_SECRET'],
   properties: {
     NEXTAUTH_URL: {
       type: 'string',
       default: 'http://localhost:3000',
     },
-    NEXTAUTH_SECRET: {
+    AUTH_SECRET: {
       type: 'string',
     },
     GITHUB_CLIENT_ID: {
@@ -29,7 +29,9 @@ const schema = {
   },
 }
 
-const fastify = Fastify({ logger: true })
+const fastify = Fastify({ logger: false })
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 async function initialize() {
   fastify
@@ -40,18 +42,17 @@ async function initialize() {
       schema,
       dotenv: true,
     })
-    .register(cookie)
-    .register(formBody)
   await fastify.after()
-  fastify.register(NextAuthPlugin, {
-    secret: process.env.NEXTAUTH_SECRET,
+  await fastify.register(NextAuthPlugin, {
+    secret: process.env.AUTH_SECRET,
+    trustHost: true,
     providers: [
       GithubProvider({
-        clientId: process.env.GITHUB_CLIENT_ID,
-        clientSecret: process.env.GITHUB_CLIENT_SECRET,
+        clientId: process.env.GITHUB_CLIENT_ID as string,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
       }),
     ],
-  } as NextAuthOptions)
+  } as AuthOptions)
 }
 
 fastify.get('/', (req, reply) => {
@@ -59,7 +60,14 @@ fastify.get('/', (req, reply) => {
 })
 
 fastify.get('/api/user', async (req) => {
-  const session = await getSession({ req })
+  const session = await getSession(req as unknown as IncomingMessage, {
+    providers: [
+      GithubProvider({
+        clientId: process.env.GITHUB_CLIENT_ID as string,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+      }),
+    ],
+  })
   return session
 })
 

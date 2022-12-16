@@ -1,63 +1,37 @@
-import type { NextAuthAction, NextAuthOptions } from 'next-auth'
-import { NextAuthHandler } from 'next-auth/core'
+import type { IncomingMessage, ServerResponse } from 'http'
+import type { AuthOptions } from '@auth/core'
 import type { FastifyPluginCallback } from 'fastify'
 import fastifyPlugin from 'fastify-plugin'
-import 'node-fetch-native/polyfill'
+import Middie from '@fastify/middie/engine'
+import { createAuthMiddleware } from 'authey'
 
-const plugin: FastifyPluginCallback<NextAuthOptions> = (
+const plugin: FastifyPluginCallback<AuthOptions> = async (
   fastify,
   options,
   next,
 ) => {
-  fastify.all('/api/auth/*', async (request, reply) => {
-    const nextauth = request.url.split('/')
+  const middleware = createAuthMiddleware(options)
 
-    const req = {
-      host: process.env.NEXTAUTH_URL,
-      body: request.body as Record<string, any> || {},
-      query: request.query as Record<string, any>,
-      headers: request.headers,
-      method: request.method,
-      cookies: (request as any).cookies,
-      action: nextauth[3] as NextAuthAction,
-      providerId: nextauth[4]?.split('?')[0],
-      error: nextauth[4]?.split('?')[0],
-    }
-
-    const response = await NextAuthHandler({
-      req,
-      options,
-    })
-
-    const { headers, cookies, body, redirect, status = 200 } = response
-
-    reply.statusCode = status
-
-    headers?.forEach((header) => {
-      reply.header(header.key, header.value)
-    })
-
-    cookies?.forEach((cookie) => {
-      (reply as any).setCookie(cookie.name, cookie.value, cookie.options)
-    })
-
-    if (redirect) {
-      if (request.method === 'POST') {
-        const body = request.body as Record<string, any>
-        if (body?.json !== 'true')
-          await reply.redirect(302, redirect)
-
-        return {
-          url: redirect,
-        }
-      }
-      else {
-        await reply.redirect(302, redirect)
-      }
-    }
-
-    return body
+  const middie = Middie((err: Error, _req: IncomingMessage, _res: ServerResponse, next: (err?: Error) => void) => {
+    next(err)
   })
+
+  middie.use(middleware)
+
+  function runMiddie(req: any, reply: any, next: (err?: Error) => void) {
+    req.raw.originalUrl = req.raw.url
+    req.raw.id = req.id
+    req.raw.hostname = req.hostname
+    req.raw.ip = req.ip
+    req.raw.ips = req.ips
+    req.raw.log = req.log
+    req.raw.body = req.body
+    req.raw.query = req.query
+    reply.raw.log = req.log
+    middie.run(req.raw, reply.raw, next)
+  }
+
+  fastify.addHook('onRequest', runMiddie)
 
   next()
 }
@@ -65,12 +39,11 @@ const plugin: FastifyPluginCallback<NextAuthOptions> = (
 const fastifyNextAuth = fastifyPlugin(plugin, {
   fastify: '4.x',
   name: 'fastify-next-auth',
-  dependencies: ['@fastify/cookie', '@fastify/formbody'],
 })
 
 export {
   fastifyNextAuth,
-  NextAuthOptions,
+  AuthOptions,
 }
 
 export default fastifyNextAuth

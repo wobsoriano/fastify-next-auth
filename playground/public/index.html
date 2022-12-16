@@ -23,7 +23,7 @@
   <script src="https://unpkg.com/vue@3"></script>
   <script type="module">
     import * as Client from "https://cdn.skypack.dev/fastify-next-auth/client"
-    const { getSession, signIn, signOut } = Client
+    const { signIn, signOut } = Client
     const { createApp, ref, onMounted } = Vue
 
     createApp({
@@ -32,7 +32,10 @@
         const user = ref(null)
 
         onMounted(async() => {
-          user.value = await getSession()
+          // user.value = await getSession()
+          const res = await fetch('/api/user')
+          const data = await res.json()
+          console.log(data)
           loading.value = false
         })
 

@@ -1,11 +1,12 @@
 {
   "name": "playground",
+  "type": "module",
   "private": true,
   "scripts": {
-    "dev": "tsx watch ./server.ts"
+    "dev": "esno ./server.ts"
   },
   "dependencies": {
-    "@fastify/static": "^6.4.0",
+    "@fastify/static": "^6.6.0",
     "fastify-next-auth": "workspace:*"
   }
 }
