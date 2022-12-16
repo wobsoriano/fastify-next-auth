@@ -1,39 +1,30 @@
 # fastify-next-auth
 
-Authentication plugin for Fastify, powered by [NextAuth.js](https://next-auth.js.org/).
-
-**Requirements:**
-
-+ [fastify-cookie](https://github.com/fastify/fastify-cookie): used to set cookie for tracking sessions.
-+ [fastify-formbody](https://github.com/fastify/fastify-formbody): used to parse content-type `application/x-www-form-urlencoded`.
+Authentication plugin for Fastify, powered by [Auth.js](https://authjs.dev/).
 
 ## Installation
 
 ```bash
-npm install next-auth fastify-next-auth
+npm install @auth/core fastify-next-auth
 ```
 
 ## Usage
 
 ```ts
 import fastify from 'fastify'
-import cookie from '@fastify/cookie'
-import formBody from '@fastify/formbody'
 import AppleProvider from 'next-auth/providers/apple'
 import GoogleProvider from 'next-auth/providers/google'
 import EmailProvider from 'next-auth/providers/email'
-import type { NextAuthOptions } from 'fastify-next-auth'
-import NextAuth from 'fastify-next-auth'
+import type { AuthOptions } from '@auth/core'
+import AuthPlugin from 'fastify-next-auth'
 
 const app = fastify()
 
 app
-  .register(cookie)
-  .register(formBody)
-  .register(NextAuth, {
-    secret: process.env.NEXTAUTH_SECRET,
+  .register(AuthPlugin, {
+    secret: process.env.AUTH_SECRET,
     providers: [
-    // OAuth authentication providers
+      // OAuth authentication providers
       AppleProvider({
         clientId: process.env.APPLE_ID,
         clientSecret: process.env.APPLE_SECRET,
@@ -48,7 +39,7 @@ app
         from: '<no-reply@example.com>',
       }),
     ],
-  } as NextAuthOptions)
+  } as AuthOptions)
 ```
 
 ## Client API
@@ -68,45 +59,12 @@ Example Session Object
 }
 ```
 
-<b>Server Side Example</b>
+<b>Client Side Functions</b>
 
 ```ts
-import {
-  getCsrfToken,
-  getProviders,
-  getSession
-} from 'fastify-next-auth/client'
-
-fastify.get('/api/info', async (req, reply) => {
-  const session = await getSession({ req })
-  const token = await getCsrfToken({ req })
-  // Unlike getSession() and getCsrfToken(), when calling getProviders() server side,
-  // you don't need to pass anything, just as calling it client side.
-  const providers = await getProviders()
-  return {
-    session,
-    providers,
-    token
-  }
-})
-```
-
-<b>Client Side Example</b>
-
-```ts
-import {
-  getCsrfToken,
-  getProviders,
-  getSession,
-  signIn,
-  signOut
-} from 'fastify-next-auth/client'
+import { signIn, signOut } from 'fastify-next-auth/client'
 
 async function myFunction() {
-  const session = await getSession()
-  const providers = await getProviders()
-  const token = await getCsrfToken()
-
   // Redirects to sign in page
   signIn()
 
@@ -120,7 +78,7 @@ async function myFunction() {
 }
 ```
 
-For more info on client side usage, proceed to the [NextAuth.js Client API](https://next-auth.js.org/getting-started/client) docs page.
+For more info, proceed to the [Auth.js](https://authjs.dev/) docs.
 
 ## License
 

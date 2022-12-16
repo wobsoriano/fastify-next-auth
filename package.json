@@ -56,16 +56,16 @@
     "dev:playground": "pnpm --filter playground dev"
   },
   "peerDependencies": {
-    "@auth/core": ">=0.1.4"
+    "@auth/core": "*"
   },
   "dependencies": {
-    "@auth/core": "^0.1.4",
     "@fastify/middie": "^8.1.0",
     "authey": "^0.1.5",
     "fastify-plugin": "^4.4.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
+    "@auth/core": "^0.1.4",
     "@fastify/env": "^4.2.0",
     "@types/node": "^17.0.45",
     "@types/tap": "^15.0.7",
