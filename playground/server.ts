@@ -8,11 +8,11 @@ import fastifyStatic from '@fastify/static'
 
 const schema = {
   type: 'object',
-  required: ['NEXTAUTH_URL', 'AUTH_SECRET', 'GITHUB_CLIENT_ID', 'GITHUB_CLIENT_SECRET'],
+  required: ['AUTH_TRUST_HOST', 'AUTH_SECRET', 'GITHUB_CLIENT_ID', 'GITHUB_CLIENT_SECRET'],
   properties: {
-    NEXTAUTH_URL: {
+    AUTH_TRUST_HOST: {
       type: 'string',
-      default: 'http://localhost:3000',
+      default: '1',
     },
     AUTH_SECRET: {
       type: 'string',
@@ -42,7 +42,7 @@ async function initialize() {
   await fastify.after()
   await fastify.register(NextAuthPlugin, {
     secret: process.env.AUTH_SECRET,
-    trustHost: true,
+    trustHost: Boolean(process.env.AUTH_TRUST_HOST),
     providers: [
       GithubProvider({
         clientId: process.env.GITHUB_CLIENT_ID as string,
