@@ -40,18 +40,16 @@ app
 ```ts
 import { signIn, signOut } from 'fastify-next-auth/client'
 
-async function myFunction() {
-  // Redirects to sign in page
-  signIn()
+// Redirects to sign in page
+signIn()
 
-  // Starts OAuth sign-in flow
-  signIn('google')
+// Starts OAuth sign-in flow
+signIn('google')
 
-  // Starts Email sign-in flow
-  signIn('email', { email: 'hello@mail.com' })
+// Starts Email sign-in flow
+signIn('email', { email: 'hello@mail.com' })
 
-  signOut()
-}
+signOut()
 ```
 
 <b>Decorators</b>
