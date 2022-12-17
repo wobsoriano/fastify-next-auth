@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "@fastify/middie": "^8.1.0",
-    "authey": "^0.1.5",
+    "authey": "^0.1.6",
     "fastify-plugin": "^4.4.0"
   },
   "devDependencies": {

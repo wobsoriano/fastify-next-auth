@@ -10,7 +10,7 @@ importers:
       '@fastify/middie': ^8.1.0
       '@types/node': ^17.0.45
       '@types/tap': ^15.0.7
-      authey: ^0.1.5
+      authey: ^0.1.6
       bumpp: ^8.2.1
       eslint: ^8.29.0
       esno: ^0.16.3
@@ -22,7 +22,7 @@ importers:
       vitest: ^0.13.1
     dependencies:
       '@fastify/middie': 8.1.0
-      authey: 0.1.5_@auth+core@0.1.4
+      authey: 0.1.6_@auth+core@0.1.4
       fastify-plugin: 4.4.0
     devDependencies:
       '@antfu/eslint-config': 0.25.2_xvzpjijhkctmigv5mxrrudvtgm
@@ -875,8 +875,8 @@ packages:
     engines: {node: '>=8.0.0'}
     dev: true
 
-  /authey/0.1.5_@auth+core@0.1.4:
-    resolution: {integrity: sha512-dh4NjEEWKcdg7n1FeESxwgUrYzAdAxFWNyPzoyIO2v3K1pEf8KXDU/OhBVtuh5ktYdEiB8onNXTK8zIJ/VgVww==}
+  /authey/0.1.6_@auth+core@0.1.4:
+    resolution: {integrity: sha512-o2vmvFklApWKPextXl3Pjw7YuRd76GS4z3d/2BE113DTcjCm/yKyD3+p7gVT8HXQ5MG2JYY0FNlxIhnmOaoS4g==}
     peerDependencies:
       '@auth/core': '*'
     dependencies:
