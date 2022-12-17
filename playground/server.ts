@@ -28,12 +28,10 @@ const schema = {
 
 const fastify = Fastify({ logger: false })
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
 async function initialize() {
   fastify
     .register(fastifyStatic, {
-      root: path.join(__dirname, 'public'),
+      root: path.join(dirname(fileURLToPath(import.meta.url)), 'public'),
     })
     .register(fastifyEnv, {
       schema,
