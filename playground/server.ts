@@ -4,7 +4,6 @@ import Fastify from 'fastify'
 import fastifyEnv from '@fastify/env'
 import GithubProvider from '@auth/core/providers/github'
 import NextAuthPlugin from 'fastify-next-auth'
-import type { AuthOptions } from 'fastify-next-auth'
 import fastifyStatic from '@fastify/static'
 
 const schema = {
@@ -50,7 +49,7 @@ async function initialize() {
         clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
       }),
     ],
-  } as AuthOptions)
+  })
 }
 
 fastify.get('/', (req, reply) => {

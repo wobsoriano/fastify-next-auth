@@ -14,8 +14,6 @@ npm install @auth/core fastify-next-auth
 import fastify from 'fastify'
 import AppleProvider from '@auth/core/providers/apple'
 import GoogleProvider from '@auth/core/providers/google'
-import EmailProvider from '@auth/core/providers/email'
-import type { AuthOptions } from '@auth/core'
 import AuthPlugin from 'fastify-next-auth'
 
 const app = fastify()
@@ -23,8 +21,8 @@ const app = fastify()
 app
   .register(AuthPlugin, {
     secret: process.env.AUTH_SECRET,
+    trustHost: process.env.AUTH_TRUST_HOST,
     providers: [
-      // OAuth authentication providers
       AppleProvider({
         clientId: process.env.APPLE_ID,
         clientSecret: process.env.APPLE_SECRET,
@@ -33,13 +31,8 @@ app
         clientId: process.env.GOOGLE_ID,
         clientSecret: process.env.GOOGLE_SECRET,
       }),
-      // Sign in with passwordless email link
-      EmailProvider({
-        server: process.env.MAIL_SERVER,
-        from: '<no-reply@example.com>',
-      }),
     ],
-  } as AuthOptions)
+  })
 ```
 
 <b>Client Side Functions</b>
