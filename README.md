@@ -56,7 +56,7 @@ signOut()
 
 ```ts
 fastify.get('/api/user', async (req) => {
-  const { user } = await fastify.getSession(req)
+  const { user } = await this.getSession(req)
   return user
 })
 ```

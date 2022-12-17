@@ -32,7 +32,8 @@ const plugin: FastifyPluginCallback<AuthOptions> = async (
   }
 
   fastify.addHook('onRequest', runMiddie)
-  fastify.decorate('getSession', (req: FastifyRequest) => {
+  // eslint-disable-next-line prefer-arrow-callback
+  fastify.decorate('getSession', function (req: FastifyRequest) {
     return getSession(req.raw, options)
   })
 
