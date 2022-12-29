@@ -1,11 +1,11 @@
 import type { IncomingMessage, ServerResponse } from 'http'
-import type { AuthOptions, Session } from '@auth/core'
+import type { AuthConfig, Session } from '@auth/core/types'
 import type { FastifyPluginCallback, FastifyRequest } from 'fastify'
 import fastifyPlugin from 'fastify-plugin'
 import Middie from '@fastify/middie/engine'
 import { createAuthMiddleware, getSession } from 'authey'
 
-const plugin: FastifyPluginCallback<AuthOptions> = async (
+const plugin: FastifyPluginCallback<AuthConfig> = async (
   fastify,
   options,
   next,
@@ -47,7 +47,7 @@ const fastifyNextAuth = fastifyPlugin(plugin, {
 
 export {
   fastifyNextAuth,
-  AuthOptions,
+  AuthConfig,
 }
 
 export default fastifyNextAuth
