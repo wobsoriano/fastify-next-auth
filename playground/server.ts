@@ -1,5 +1,5 @@
-import path, { dirname } from 'path'
-import { fileURLToPath } from 'url'
+import path, { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import Fastify from 'fastify'
 import fastifyEnv from '@fastify/env'
 import GithubProvider from '@auth/core/providers/github'

@@ -79,6 +79,9 @@
     "vitest": "^0.29.8"
   },
   "eslintConfig": {
-    "extends": "@antfu"
+    "extends": "@antfu",
+    "rules": {
+      "unicorn/prefer-node-protocol": "off"
+    }
   }
 }
