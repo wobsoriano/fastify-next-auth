@@ -8,8 +8,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0
       authey:
-        specifier: ^0.4.2
-        version: 0.4.2(@auth/core@0.5.1)
+        specifier: ^0.5.0
+        version: 0.5.0(@auth/core@0.7.1)
       fastify-plugin:
         specifier: ^4.5.0
         version: 4.5.0
@@ -18,8 +18,8 @@ importers:
         specifier: ^0.37.0
         version: 0.37.0(eslint@8.37.0)(typescript@5.0.2)
       '@auth/core':
-        specifier: ^0.5.1
-        version: 0.5.1
+        specifier: ^0.7.1
+        version: 0.7.1
       '@fastify/env':
         specifier: ^4.2.0
         version: 4.2.0
@@ -170,8 +170,8 @@ packages:
     resolution: {integrity: sha512-CQkeV+oJxUazwjlHD0/3ZD08QWKuGQkhnrKo3e6ly5pd48VUpXbb77q0xMU4+vc2CkJnDS02Eq/M9ugyX20XZA==}
     dev: true
 
-  /@auth/core@0.5.1:
-    resolution: {integrity: sha512-t9z8F7dkuVceKWBmMy1fd2t6H+vfRju/YJ1lm+6RnJ7pNEvX5qMR874wg0+cYbWvyZazLi8fFK/FA6I3D5sSkA==}
+  /@auth/core@0.7.1:
+    resolution: {integrity: sha512-aAgzC/VlfnvxsFYp5Wau1pfIltRUBvfVxECR0imDPUznwXIkD9alvrai60tfImtPfXp1fnJpcKfiONpF5Rg8VQ==}
     peerDependencies:
       nodemailer: ^6.8.0
     peerDependenciesMeta:
@@ -1126,14 +1126,14 @@ packages:
     engines: {node: '>=8.0.0'}
     dev: true
 
-  /authey@0.4.2(@auth/core@0.5.1):
-    resolution: {integrity: sha512-dfvAFmzgBOq0oh1NnGAcqjV3VaetxYQ7d0wq+Y9Smt20r6ygH9V1xfPXMc55O73/lEPCWH7nSrgoVpyUoNMhJw==}
+  /authey@0.5.0(@auth/core@0.7.1):
+    resolution: {integrity: sha512-sSDbqhUMTuJAvwhXr8bebon53yOJSMoatuWirM5p8Spmif82jOKgUuZQytnz1584fi2DDXfis78CHV9HuKFu5A==}
     peerDependencies:
-      '@auth/core': ^0.5.0
+      '@auth/core': ^0.7.0
     dependencies:
-      '@auth/core': 0.5.1
+      '@auth/core': 0.7.1
       '@polka/send-type': 0.5.2
-      node-fetch-native: 1.0.2
+      node-fetch-native: 1.1.0
       requrl: 3.0.2
       set-cookie-parser: 2.6.0
     dev: false
@@ -3529,8 +3529,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /node-fetch-native@1.0.2:
-    resolution: {integrity: sha512-KIkvH1jl6b3O7es/0ShyCgWLcfXxlBrLBbP3rOr23WArC66IMcU4DeZEeYEOwnopYhawLTn7/y+YtmASe8DFVQ==}
+  /node-fetch-native@1.1.0:
+    resolution: {integrity: sha512-nl5goFCig93JZ9FIV8GHT9xpNqXbxQUzkOmKIMKmncsBH9jhg7qKex8hirpymkBFmNQ114chEEG5lS4wgK2I+Q==}
     dev: false
 
   /node-gyp@9.3.0:
