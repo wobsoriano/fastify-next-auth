@@ -6,7 +6,7 @@
     "dev": "esno ./server.ts"
   },
   "dependencies": {
-    "@fastify/static": "^6.6.0",
+    "@fastify/static": "^6.10.2",
     "fastify-next-auth": "workspace:*"
   }
 }
