@@ -1,6 +1,6 @@
 {
   "name": "fastify-next-auth",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Auth.js plugin for Fastify.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
