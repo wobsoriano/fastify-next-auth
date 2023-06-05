@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 importers:
 
@@ -8,8 +12,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0
       authey:
-        specifier: ^0.5.0
-        version: 0.5.0(@auth/core@0.7.1)
+        specifier: ^0.6.0
+        version: 0.6.0(@auth/core@0.8.1)
       fastify-plugin:
         specifier: ^4.5.0
         version: 4.5.0
@@ -18,8 +22,8 @@ importers:
         specifier: ^0.37.0
         version: 0.37.0(eslint@8.37.0)(typescript@5.0.2)
       '@auth/core':
-        specifier: ^0.7.1
-        version: 0.7.1
+        specifier: ^0.8.1
+        version: 0.8.1
       '@fastify/env':
         specifier: ^4.2.0
         version: 4.2.0
@@ -170,8 +174,8 @@ packages:
     resolution: {integrity: sha512-CQkeV+oJxUazwjlHD0/3ZD08QWKuGQkhnrKo3e6ly5pd48VUpXbb77q0xMU4+vc2CkJnDS02Eq/M9ugyX20XZA==}
     dev: true
 
-  /@auth/core@0.7.1:
-    resolution: {integrity: sha512-aAgzC/VlfnvxsFYp5Wau1pfIltRUBvfVxECR0imDPUznwXIkD9alvrai60tfImtPfXp1fnJpcKfiONpF5Rg8VQ==}
+  /@auth/core@0.8.1:
+    resolution: {integrity: sha512-WudBmZudZ/cvykxHV5hIwrYsd7AlETQ535O7w3sSiiumT28+U9GvBb8oSRtfzxpW9rym3lAdfeTJqGA8U4FecQ==}
     peerDependencies:
       nodemailer: ^6.8.0
     peerDependenciesMeta:
@@ -1126,14 +1130,14 @@ packages:
     engines: {node: '>=8.0.0'}
     dev: true
 
-  /authey@0.5.0(@auth/core@0.7.1):
-    resolution: {integrity: sha512-sSDbqhUMTuJAvwhXr8bebon53yOJSMoatuWirM5p8Spmif82jOKgUuZQytnz1584fi2DDXfis78CHV9HuKFu5A==}
+  /authey@0.6.0(@auth/core@0.8.1):
+    resolution: {integrity: sha512-/ecKKqMJqh4K33sy5lZf9pI0Kcv2An8XgJ8ezYDWeohzepFCmmjUBkPsxO6FIYMoIek8M5qxeFqHvhFWkc6pUA==}
     peerDependencies:
-      '@auth/core': ^0.7.0
+      '@auth/core': ^0.8.0
     dependencies:
-      '@auth/core': 0.7.1
+      '@auth/core': 0.8.1
       '@polka/send-type': 0.5.2
-      node-fetch-native: 1.1.0
+      node-fetch-native: 1.1.1
       requrl: 3.0.2
       set-cookie-parser: 2.6.0
     dev: false
@@ -3529,8 +3533,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /node-fetch-native@1.1.0:
-    resolution: {integrity: sha512-nl5goFCig93JZ9FIV8GHT9xpNqXbxQUzkOmKIMKmncsBH9jhg7qKex8hirpymkBFmNQ114chEEG5lS4wgK2I+Q==}
+  /node-fetch-native@1.1.1:
+    resolution: {integrity: sha512-9VvspTSUp2Sxbl+9vbZTlFGq9lHwE8GDVVekxx6YsNd1YH59sb3Ba8v3Y3cD8PkLNcileGGcA21PFjVl0jzDaw==}
     dev: false
 
   /node-gyp@9.3.0:
