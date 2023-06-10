@@ -8,7 +8,7 @@ import { createAuthMiddleware, getSession } from 'authey'
 const plugin: FastifyPluginCallback<AuthConfig> = (
   fastify,
   options,
-  next,
+  done,
 ) => {
   const middleware = createAuthMiddleware(options)
 
@@ -37,7 +37,7 @@ const plugin: FastifyPluginCallback<AuthConfig> = (
     return getSession(req.raw, options)
   })
 
-  next()
+  done()
 }
 
 const fastifyNextAuth = fastifyPlugin(plugin, {
