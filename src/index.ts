@@ -5,7 +5,7 @@ import fastifyPlugin from 'fastify-plugin'
 import Middie from '@fastify/middie/engine'
 import { createAuthMiddleware, getSession } from 'authey'
 
-const plugin: FastifyPluginCallback<AuthConfig> = async (
+const plugin: FastifyPluginCallback<AuthConfig> = (
   fastify,
   options,
   next,
