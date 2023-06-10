@@ -8,15 +8,18 @@ importers:
 
   .:
     dependencies:
-      '@fastify/middie':
-        specifier: ^8.3.0
-        version: 8.3.0
       authey:
         specifier: ^0.6.0
         version: 0.6.0(@auth/core@0.8.2)
       fastify-plugin:
         specifier: ^4.5.0
         version: 4.5.0
+      path-to-regexp:
+        specifier: ^6.2.1
+        version: 6.2.1
+      reusify:
+        specifier: ^1.0.4
+        version: 1.0.4
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^0.39.5
@@ -510,21 +513,13 @@ packages:
 
   /@fastify/error@3.2.1:
     resolution: {integrity: sha512-scZVbcpPNWw/yyFmzzO7cf1daTeJp53spN2n7dBTHZd+cV7791fcWJCPP1Tfhdbre+8vDiCyQyqqXfQnYMntYQ==}
+    dev: true
 
   /@fastify/fast-json-stringify-compiler@4.3.0:
     resolution: {integrity: sha512-aZAXGYo6m22Fk1zZzEUKBvut/CIIQe/BapEORnxiD5Qr0kPHqqI69NtEMCme74h+at72sPhbkb4ZrLd1W3KRLA==}
     dependencies:
       fast-json-stringify: 5.7.0
     dev: true
-
-  /@fastify/middie@8.3.0:
-    resolution: {integrity: sha512-h+zBxCzMlkEkh4fM7pZaSGzqS7P9M0Z6rXnWPdUEPfe7x1BCj++wEk/pQ5jpyYY4pF8AknFqb77n7uwh8HdxEA==}
-    dependencies:
-      '@fastify/error': 3.2.1
-      fastify-plugin: 4.5.0
-      path-to-regexp: 6.2.1
-      reusify: 1.0.4
-    dev: false
 
   /@fastify/send@2.1.0:
     resolution: {integrity: sha512-yNYiY6sDkexoJR0D8IDy3aRP3+L4wdqCpvx5WP+VtEU58sn7USmKynBzDQex5X42Zzvw2gNzzYgP90UfWShLFA==}

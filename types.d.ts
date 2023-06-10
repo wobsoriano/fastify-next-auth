@@ -1,1 +1,1 @@
-declare module '@fastify/middie/engine'
+declare module 'reusify'

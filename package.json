@@ -60,9 +60,10 @@
     "@auth/core": "^0.8.0"
   },
   "dependencies": {
-    "@fastify/middie": "^8.3.0",
     "authey": "^0.6.0",
-    "fastify-plugin": "^4.5.0"
+    "fastify-plugin": "^4.5.0",
+    "path-to-regexp": "^6.2.1",
+    "reusify": "^1.0.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
