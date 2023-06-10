@@ -1,5 +1,6 @@
 // Taken from next-auth/react
 import type { BuiltInProviderType, ProviderType } from '@auth/core/providers'
+
 /**
  * Util type that matches some strings literally, but allows any other string as well.
  * @source https://github.com/microsoft/TypeScript/issues/29729#issuecomment-832522611
