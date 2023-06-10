@@ -47,6 +47,7 @@
   ],
   "scripts": {
     "build": "tsup",
+    "dev": "tsup --onSuccess \"pnpm --filter playground dev\"",
     "test": "vitest run",
     "prepublishOnly": "pnpm build",
     "lint": "eslint .",
@@ -65,18 +66,18 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
-    "@auth/core": "^0.8.1",
+    "@auth/core": "^0.8.2",
     "@fastify/env": "^4.2.0",
-    "@types/node": "^18.16.16",
+    "@types/node": "^18.16.17",
     "@types/tap": "^15.0.8",
     "bumpp": "^9.1.1",
     "eslint": "^8.42.0",
     "esno": "^0.16.3",
-    "fastify": "4.17.0",
+    "fastify": "4.18.0",
     "taze": "^0.10.2",
     "tsup": "6.7.0",
     "typescript": "5.1.3",
-    "vitest": "^0.31.4"
+    "vitest": "^0.32.0"
   },
   "eslintConfig": {
     "extends": "@antfu",
