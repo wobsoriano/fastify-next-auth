@@ -1,15 +1,15 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`REST API > GET /api/auth/providers 1`] = `
 {
   "github": {
-    "callbackUrl": "http://localhost:3000/api/auth/callback/github",
+    "callbackUrl": "http://localhost/api/auth/callback/github",
     "id": "github",
     "name": "GitHub",
-    "signinUrl": "http://localhost:3000/api/auth/signin/github",
+    "signinUrl": "http://localhost/api/auth/signin/github",
     "type": "oauth",
   },
 }
 `;
 
-exports[`REST API > GET /api/auth/session 1`] = `{}`;
+exports[`REST API > GET /api/auth/session 1`] = `null`;

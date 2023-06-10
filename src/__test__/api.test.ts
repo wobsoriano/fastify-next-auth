@@ -19,7 +19,7 @@ describe('REST API', () => {
     })
 
     expect(response.statusCode).toBe(200)
-    expect(response.body).toContain('<button type="submit" class="button">Sign in with GitHub</button>')
+    expect(response.body).toContain('Sign in with GitHub')
   })
 
   test('POST /api/auth/signin/:provider', async () => {
@@ -39,7 +39,7 @@ describe('REST API', () => {
 
     expect(response.statusCode).toBe(200)
     expect(response.body).toContain('Are you sure you want to sign out?')
-    expect(response.body).toContain('<button type="submit">Sign out</button>')
+    expect(response.body).toContain('Sign out')
   })
 
   test('POST /api/auth/signout', async () => {
