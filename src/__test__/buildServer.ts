@@ -2,7 +2,6 @@ import path from 'node:path'
 import Fastify from 'fastify'
 import fastifyEnv from '@fastify/env'
 import GithubProvider from '@auth/core/providers/github'
-import type { Provider } from '@auth/core/providers'
 import NextAuthPlugin from '../index'
 
 const schema = {
@@ -42,7 +41,7 @@ export async function buildServer() {
       GithubProvider({
         clientId: process.env.GITHUB_CLIENT_ID!,
         clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-      }) as Provider,
+      }),
     ],
   })
 
