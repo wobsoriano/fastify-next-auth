@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       authey:
-        specifier: ^0.6.0
-        version: 0.6.0(@auth/core@0.8.3)
+        specifier: ^0.6.1
+        version: 0.6.1(@auth/core@0.8.3)
       fastify-plugin:
         specifier: ^4.5.0
         version: 4.5.0
@@ -1385,14 +1385,14 @@ packages:
     engines: {node: '>=8.0.0'}
     dev: true
 
-  /authey@0.6.0(@auth/core@0.8.3):
-    resolution: {integrity: sha512-/ecKKqMJqh4K33sy5lZf9pI0Kcv2An8XgJ8ezYDWeohzepFCmmjUBkPsxO6FIYMoIek8M5qxeFqHvhFWkc6pUA==}
+  /authey@0.6.1(@auth/core@0.8.3):
+    resolution: {integrity: sha512-2wQP7Y1wt/p7B474soA3thEX7WY5kmRR74/rnWhKZqQVbFq4elS1k6TGO+y0Rr2JTnIgayVIauw1aX2Clar4mQ==}
     peerDependencies:
-      '@auth/core': ^0.8.0
+      '@auth/core': '>=0.8.3'
     dependencies:
       '@auth/core': 0.8.3
       '@polka/send-type': 0.5.2
-      node-fetch-native: 1.1.1
+      node-fetch-native: 1.2.0
       requrl: 3.0.2
       set-cookie-parser: 2.6.0
     dev: false
@@ -2968,7 +2968,7 @@ packages:
       defu: 6.1.2
       https-proxy-agent: 5.0.1
       mri: 1.2.0
-      node-fetch-native: 1.1.1
+      node-fetch-native: 1.2.0
       pathe: 1.1.0
       tar: 6.1.13
     transitivePeerDependencies:
@@ -3931,8 +3931,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /node-fetch-native@1.1.1:
-    resolution: {integrity: sha512-9VvspTSUp2Sxbl+9vbZTlFGq9lHwE8GDVVekxx6YsNd1YH59sb3Ba8v3Y3cD8PkLNcileGGcA21PFjVl0jzDaw==}
+  /node-fetch-native@1.2.0:
+    resolution: {integrity: sha512-5IAMBTl9p6PaAjYCnMv5FmqIF6GcZnawAVnzaCG0rX2aYZJ4CxEkZNtVPuTRug7fL7wyM5BQYTlAzcyMPi6oTQ==}
 
   /node-gyp@9.3.0:
     resolution: {integrity: sha512-A6rJWfXFz7TQNjpldJ915WFb1LnhO4lIve3ANPbWreuEoLoKlFT3sxIepPBkLhM27crW8YmN+pjlgbasH6cH/Q==}

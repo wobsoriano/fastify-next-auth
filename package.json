@@ -60,7 +60,7 @@
     "@auth/core": ">=0.8.3"
   },
   "dependencies": {
-    "authey": "^0.6.0",
+    "authey": "^0.6.1",
     "fastify-plugin": "^4.5.0",
     "path-to-regexp": "^6.2.1",
     "reusify": "^1.0.4"
