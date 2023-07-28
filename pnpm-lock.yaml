@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       authey:
-        specifier: ^0.7.0
-        version: 0.7.0(@auth/core@0.9.0)
+        specifier: ^0.8.1
+        version: 0.8.1(@auth/core@0.10.0)
       fastify-plugin:
         specifier: ^4.5.0
         version: 4.5.0
@@ -25,8 +25,8 @@ importers:
         specifier: ^0.39.6
         version: 0.39.6(eslint@8.43.0)(typescript@5.1.5)
       '@auth/core':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.10.0
+        version: 0.10.0
       '@fastify/env':
         specifier: ^4.2.0
         version: 4.2.0
@@ -177,8 +177,8 @@ packages:
     resolution: {integrity: sha512-qe8Nmh9rYI/HIspLSTwtbMFPj6dISG6+dJnOguTlPNXtCvS2uezdxscVBb7/3DrmNbQK49TDqpkSQ1chbRGdpQ==}
     dev: true
 
-  /@auth/core@0.9.0:
-    resolution: {integrity: sha512-W2WO0WCBg1T3P8+yjQPzurTQhPv6ecBYfJ2oE3uvXPAX5ZLWAMSjKFAIa9oLZy5pwrB+YehJZPnlIxVilhrVcg==}
+  /@auth/core@0.10.0:
+    resolution: {integrity: sha512-mmvAzFUcDHG0m6avQ6/sYI3wtQtt3Tjbk4wCr27OlCeNnlzqK8lDQJIDFbJOTXEu/dNUx8sUQ0xMp7A6GAaHQw==}
     peerDependencies:
       nodemailer: ^6.8.0
     peerDependenciesMeta:
@@ -1382,12 +1382,12 @@ packages:
     engines: {node: '>=8.0.0'}
     dev: true
 
-  /authey@0.7.0(@auth/core@0.9.0):
-    resolution: {integrity: sha512-ChxzOmpGosN4iyDWqos5eWjmOrg0Sq/Es7tjiqeFV/S2REOn7BE6IFNHXduRCIFNqOrMaTk+w8Cl9iDbWrGhEQ==}
+  /authey@0.8.1(@auth/core@0.10.0):
+    resolution: {integrity: sha512-9WPc910XO3xJh32Mw45fvnTiXj1HMdft89cV6+tQvA0d1gfFUA233J2H0/f4pr1y04qolmtUq4CNneVLEwRYbQ==}
     peerDependencies:
-      '@auth/core': ^0.9.0
+      '@auth/core': '>=0.10.0'
     dependencies:
-      '@auth/core': 0.9.0
+      '@auth/core': 0.10.0
       '@polka/send-type': 0.5.2
       node-fetch-native: 1.2.0
       requrl: 3.0.2
